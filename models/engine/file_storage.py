@@ -57,3 +57,8 @@ class FileStorage:
                     self.new(eval(obj["__class__"])(**obj))
         except FileNotFoundError:
             return
+    def reset(self):
+        """
+        Deletes all objects from __objects
+        """
+        self.__objects = {}
