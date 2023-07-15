@@ -10,41 +10,44 @@ class TestHBNBCommand(unittest.TestCase):
         self.console = HBNBCommand()
 
     def tearDown(self):
-        pass
+        try:
+            self.console.onecmd("EOF")
+        except SystemExit:
+            pass
 
     def test_create(self):
         with patch('sys.stdout', new=StringIO()) as fake_out:
-            self.console.do_create("BaseModel")
+            self.console.onecmd("create BaseModel")
             output = fake_out.getvalue().strip()
             self.assertTrue(output != "")
 
     def test_show(self):
         with patch('sys.stdout', new=StringIO()) as fake_out:
-            self.console.do_show("BaseModel 123")
+            self.console.onecmd("show BaseModel 123")
             output = fake_out.getvalue().strip()
             self.assertTrue(output != "")
 
     def test_destroy(self):
         with patch('sys.stdout', new=StringIO()) as fake_out:
-            self.console.do_destroy("BaseModel 123")
+            self.console.onecmd("destroy BaseModel 123")
             output = fake_out.getvalue().strip()
             self.assertTrue(output != "")
 
     def test_all(self):
         with patch('sys.stdout', new=StringIO()) as fake_out:
-            self.console.do_all("")
+            self.console.onecmd("all")
             output = fake_out.getvalue().strip()
             self.assertTrue(output != "")
 
     def test_count(self):
         with patch('sys.stdout', new=StringIO()) as fake_out:
-            self.console.do_count("BaseModel")
+            self.console.onecmd("count BaseModel")
             output = fake_out.getvalue().strip()
             self.assertTrue(output != "")
 
     def test_update(self):
         with patch('sys.stdout', new=StringIO()) as fake_out:
-            self.console.do_update("BaseModel 123 name John")
+            self.console.onecmd("update BaseModel 123 name John")
             output = fake_out.getvalue().strip()
             self.assertTrue(output != "")
 
