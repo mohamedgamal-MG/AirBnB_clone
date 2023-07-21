@@ -1,3 +1,4 @@
+![logo](web_static/images/logo.png)
 # Project Description
 
 This is a command-line interface program that provides a command interpreter for an AirBnB clone project. The program allows users to create, manipulate, and delete different objects such as users, states, cities, places, and reviews. The program uses Python3 and is compatible with both the interactive and non-interactive modes.
